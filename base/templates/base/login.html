@@ -1,0 +1,33 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="form-section">
+      <div class="login-form">
+        <div class="logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPAHZMey73FBVFYf0uGvvVBxRgrsiRZXEJJw&s" alt="Fanatics Logo" />
+          </div>
+          <form method="post" action="">
+    
+            {% csrf_token %}
+    
+            {{form.as_p}}
+            <a href="{% url 'signup' %}" style="color: white; text-decoration: none;margin-bottom: 10px;margin-top: 0px;">Signup here</a>
+
+            <button type="submit" id="login-button">Login</button>
+          </form>
+          
+      </div>  
+      
+    </div>
+
+    
+
+    <div class="image-section"></div>
+</div>
+
+
+{% endblock %}
+
+
+

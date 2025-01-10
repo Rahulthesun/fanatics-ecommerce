@@ -1,0 +1,91 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+
+<header>
+    <div class="logo">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPAHZMey73FBVFYf0uGvvVBxRgrsiRZXEJJw&s" alt="Fanatics Auto Studio" />
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Approval Process</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% if request.user.is_staff %}
+        <li><a href="{% url 'admin_approval' %}">Admin Dashboard</a></li>
+        {% endif %}
+        <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+        <li><a href="{% url 'cart_view' company.id %}"><i class="fa-solid fa-cart-shopping"></i></a><sup>{% if cart.cart_quantity > 0 %} {{cart.cart_quantity}} {% endif %}</sup></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="navigation-flex">
+        <div class="sort-container">
+            <button class="sort-button">Sort Products <i class="fa-solid fa-arrow-down-short-wide"></i></button>
+        </div>
+        
+        <div class="pagination">
+            <button class="sort-button">1</button>
+            <button class="sort-button">2</button>
+            <button class="sort-button">3</button>
+            <button class="sort-button">4</button>
+            <button class="sort-button">5</button>
+          </div>
+    </div>
+   
+
+    <section class="product-grid">
+      <!-- Product Card -->
+      {% for product in products %}
+      <div class="product-card">
+        <div class="img-container">
+            <img src="{{product.image}}" alt="{{product.name}}" />
+        </div>
+        <h3><del style="color: rgb(153, 153, 153);">₹900</del> ₹{{product.price |floatformat}} </h3>
+        <p class="product-title">{{product.name|slice:":24"}}</p>
+        <p class="product-description">{{product.description|slice:":80"}} ...</p>
+        <div class="button-flex">
+            <a href="{% url 'add_to_cart' product.id company.id %}"><button class="buy-now" style="padding:15px 20px;"><i class="fa-solid fa-cart-plus"></i></button></a>
+            <a href="{% url 'add_to_cart' product.id company.id %}"><button class="buy-now">Buy Now</button></a>
+        </div>
+        
+        
+      </div>
+      {% endfor %}
+      
+    </section>
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-logo">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPAHZMey73FBVFYf0uGvvVBxRgrsiRZXEJJw&s" alt="Fanatics Auto Studio" />
+    </div>
+    <address>
+      149, Justice Rathinavel Pandian Rd, Golden George Nagar, Nerkundram,
+      Chennai, Tamil Nadu 600107
+    </address>
+    <div class="contact">
+      <p>CALL US @</p>
+      <a href="tel:+919677146666">+91 9677146666</a>
+    </div>
+    <div class="links">
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">Approval Process</a>
+    </div>
+    <div class="socials">
+      <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-regular fa-envelope"></i></a>
+    </div>
+  </footer>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,63 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPAHZMey73FBVFYf0uGvvVBxRgrsiRZXEJJw&s" alt="Fanatics Auto Studio" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="{% url 'home' %}"> Home</a></li>
+          <li><a href="#">Account Approval</a></li>
+          <li><a href="#">Orders</a></li>
+          <li><a href="#">Sales Report</a></li>
+          <li><a href="#">Cancellations</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <h1>Approval Pending</h1>  
+      <table>
+        <thead>
+          <tr>
+            <th>Brand Name</th>
+            <th>GSTIN</th>
+            <th>Phone</th>
+            <th>Date</th>
+            <th>Approval</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Row Example -->
+            {% for account in pending_accounts %}
+            <tr>
+                <td><b>{{account.brand_name}} {% if account.is_archived %} (Archived) {%endif%}</b></td>
+                <td>{{account.gstin}}</td>
+                <td>{{account.phone}}</td>
+                <td>{{account.created.day}}-{{account.created.month}}-{{account.created.year}}</td>
+                <td>
+                <a href="{% url 'admin_approval_approve' account.id %}"><button class="approve-btn">Approve</button></a>
+                <a href="{% url 'admin_approval_archive' account.id %}"><i class="fa-solid fa-trash" style="color: black;font-size: 18px;margin-left: 5px;"></i></a>  
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td>No Accounts Pending for Approval</td>
+            </tr>
+            
+            {% endfor %}
+
+        </tbody>
+      </table>
+    </main>
+    
+  </div>
+
+{% endblock %}
+

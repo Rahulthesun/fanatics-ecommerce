@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fanatics Auto Studio</title>
+  <script src="https://kit.fontawesome.com/853a55ecdc.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+</head>
+
+<style>
+    /* General Styles */
+body {
+  font-family: "DM Sans" , serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#yellow-header {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  top:0;
+  height: 6vh;
+  position: inherit;
+  background-color: #fdd835;
+
+}
+/* Header */
+header {
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+header .logo img {
+  max-height: 50px;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li a , header nav ul li a i {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+header nav ul li a i {
+  font-size: 22px;
+}
+
+.navigation-flex , .cart-flex {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  justify-content: space-between;
+  margin: auto auto;
+  margin-top: 10px;
+}
+
+.cart-flex {
+  width: 100%;
+}
+
+/* Main */
+.sort-container {
+  padding: 20px;
+  padding-left: 0px;
+  text-align: left;
+}
+
+.sort-button {
+  padding: 10px 20px;
+  background-color: #fdd835;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Product Grid */
+.product-grid {
+  width: 90%;
+  margin: auto auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 50px;
+  padding: 20px;
+}
+
+.product-card {
+  border: 2px solid #575757;
+  padding: 15px;
+  text-align: left;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.img-container {
+  width: 90%;
+  margin: 0px auto;
+  align-items: center;
+}
+
+.product-card img {
+  max-width: 100%;
+  margin: 10px auto;
+  margin-bottom: 10px;
+}
+
+.product-card h3 {
+  font-family: 'DM Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 5px;
+  /* identical to box height */
+  letter-spacing: -0.05em;
+
+  color: #000000;
+
+
+}
+
+
+
+.product-card .product-title {
+  font-size: 25px;
+  line-height: 30px;
+  font-weight: 700;
+  /* identical to box height */
+  letter-spacing: -0.05em;
+  margin-bottom: 10px;
+
+  color: #000000;
+
+
+}
+
+.product-card .product-description {
+  height: 40px;
+  font-size: 14px;
+  color: #555;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.button-flex{
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.buy-now {
+  padding: 15px 60px;
+  background-color: #fdd835;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.buy-now:hover {
+  background-color: #e6c014;
+}
+
+/* Pagination */
+.pagination {
+  text-align: center;
+  padding: 20px;
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  background-color: #fdd835;
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  
+}
+
+footer .footer-logo img {
+  height: 150px;
+  border-radius: 999px;
+}
+
+footer address,
+footer .contact,
+footer .links,
+footer .socials {
+  margin: 40px 0;
+  
+}
+
+footer address{
+  width: 50%;
+  margin: 10px auto;
+}
+
+footer .links a,
+footer .socials a {
+  text-decoration: none;
+  color: #f1f1f1;
+  margin: 40px 20px;
+  font-size: 20px;
+  font-weight: 600px;
+}
+
+footer .socials a{
+  
+  font-size: 30px;
+}
+
+footer .socials a img {
+  max-width: 30px;
+}
+
+
+
+.container {
+  display: flex;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.login-form {
+  width: 50%;
+  padding: 20px;
+  margin: auto auto;
+}
+
+.login-form input[type="text"] , .login-form input[type="password"] , .login-form input[type="email"] , .login-form textarea {
+  width: 100%;
+  padding: 10px 5px;
+  margin-bottom: 10px;
+}
+
+.login-form textarea {
+  background-color: #222;
+  border: 1px solid #555;
+  height: 40px;
+  color: white;
+}
+
+button#login-button {
+  padding: 10px 15px;
+  margin-top: 10px;
+}
+
+.form-section {
+  flex: 1;
+  padding: 40px;
+  background-color: #111;
+}
+
+.form-section h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ffd700;
+}
+
+.form-section label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-section input {
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #222;
+  color: #fff;
+}
+
+.form-section input:focus {
+  outline: none;
+  border-color: #ffd700;
+}
+
+.form-section button {
+  width: 100%;
+  background-color: #ffd700;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form-section button:hover {
+  background-color: #ffc300;
+}
+
+.image-section {
+  flex: 1;
+  background-image: url("https://content3.jdmagicbox.com/v2/comp/chennai/z1/044pxx44.xx44.200310141119.p3z1/catalogue/fanatics-auto-studio-koyambedu-chennai-car-washing-services-7x2ph890bl.jpg"); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  height: 94vh; /* Adjust height to 50% of the viewport height */
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo img {
+  max-width: 100px;
+}
+
+.logo h1 {
+  text-align: left;
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+
+p#error {
+  font-size: 14px;
+  color: rgb(194, 8, 8);
+}
+
+
+/* Container */
+.admin-container {
+  display: flex;
+  width: 100%;
+  background-color: white;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 20%;
+  height: 96vh;
+  top: 0;
+  position: sticky;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  padding-bottom: 5px;
+}
+
+.sidebar .logo img {
+  width: 20%auto;
+  margin-bottom: 30px;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav ul li {
+  margin: 20px 0;
+}
+
+.sidebar nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+}
+
+.sidebar nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+.cart-main-content , .main-content {
+  width: 80%;
+  padding: 20px;
+}
+
+.cart-main-content {
+  width: 90%;
+  margin: auto;
+}
+
+.cart-main-content .img-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.cart-main-content .img-container img{
+  width: 150px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #f5f5f5;
+}
+
+thead th {
+  text-align: left;
+  padding: 10px;
+  font-size: 16px;
+  color: #555;
+}
+
+tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+#quantity {
+  font-size: 20px;
+}
+
+#quantity a {
+  color: black;
+}
+
+.approve-btn {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.approve-btn:hover {
+  background-color: #444;
+}
+
+.delete-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-btn img {
+  width: 20px;
+}
+
+p#info {
+  font-size: 14px;
+  padding: 5px;
+  margin-top: 0px;
+  text-align: center;
+  font-weight: 600;
+}
+
+#price {
+  font-family: DM Mono;
+}
+
+
+
+
+</style>
+
+<body>
+    <section id="yellow-header">
+      {% for message in messages %}
+        <p id="info">{{message}}</p>
+      {% endfor %}   
+    </section>
+    
+    {% block content %}
+
+    {% endblock %}
+    
+</body>
+
+<script></script>
+
+</html>
