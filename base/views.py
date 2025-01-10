@@ -83,7 +83,7 @@ def awaiting_approval(request):
     company_account = CompanyUser.objects.filter(user=request.user)
     if company_account.exists() and company_account[0].is_approved:
         return redirect(reverse_lazy("home"))
-    return HttpResponse("Awaiting Approval from Admin")
+    return render(request , "base/waiting_approval.html")
 
 @login_required
 def add_to_cart(request , product_id , company_id):
@@ -134,9 +134,9 @@ def delete_from_cart(request , product_id , company_id):
     if cart_item.quantity > 1 :
         cart_item.quantity-= 1
         cart_item.total_amount -= cart_item.product.price
-    else:
+        cart_item.save()
+    elif cart_item.quantity <=1:
         cart_item.delete()
-    cart_item.save()
     cart.cart_quantity -= 1
     cart.cart_total -= cart_item.product.price
     cart.save() 

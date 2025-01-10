@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-hx_c*ov!zlq0h9bh%1s3+_b_lvj0wy*y7j4k8xa6juq#&tl_lu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["fanatics-ecommerce.onrender.com"]
+ALLOWED_HOSTS = ["fanatics-ecommerce.onrender.com" , "127.0.0.1"]
 
 
 # Application definition
@@ -121,7 +121,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+STATICFILES_DIRS = [
+BASE_DIR / 'base' / 'static',
+]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

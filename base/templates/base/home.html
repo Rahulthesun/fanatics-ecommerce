@@ -5,13 +5,11 @@
 
 <header>
     <div class="logo">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPAHZMey73FBVFYf0uGvvVBxRgrsiRZXEJJw&s" alt="Fanatics Auto Studio" />
+      <a href="{% url 'home' %}"><img src="https://i.ibb.co/C8372Y7/Untitled-design-39.png" alt="Fanatics Auto Studio" /></a>
     </div>
     <nav>
       <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">Approval Process</a></li>
         <li><a href="{% url 'logout' %}">Logout</a></li>
         {% if request.user.is_staff %}
         <li><a href="{% url 'admin_approval' %}">Admin Dashboard</a></li>
@@ -61,29 +59,7 @@
     
   </main>
 
-  <footer>
-    <div class="footer-logo">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPAHZMey73FBVFYf0uGvvVBxRgrsiRZXEJJw&s" alt="Fanatics Auto Studio" />
-    </div>
-    <address>
-      149, Justice Rathinavel Pandian Rd, Golden George Nagar, Nerkundram,
-      Chennai, Tamil Nadu 600107
-    </address>
-    <div class="contact">
-      <p>CALL US @</p>
-      <a href="tel:+919677146666">+91 9677146666</a>
-    </div>
-    <div class="links">
-      <a href="#">Home</a>
-      <a href="#">Products</a>
-      <a href="#">Approval Process</a>
-    </div>
-    <div class="socials">
-      <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-      <a href="#"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#"><i class="fa-regular fa-envelope"></i></a>
-    </div>
-  </footer>
+  {% include 'base/footer.html' %}
 
 
 {% endblock %}

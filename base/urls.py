@@ -1,7 +1,8 @@
 from django.urls import path
 from . import views
 from .views import EmailLogin , LogoutView , EmailSignup , CreateCompanyAccount
-
+from django.conf import settings 
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.home , name="home" ),
@@ -17,9 +18,13 @@ urlpatterns = [
     
     
     #admin dashboard
-    path('admin/pending_approval/', views.admin_approval , name="admin_approval" ),
-    path('admin/pending_approval/approve/<int:account_id>', views.admin_approval_approve , name="admin_approval_approve" ),
-    path('admin/pending_approval/archive/<int:account_id>', views.admin_approval_archive , name="admin_approval_archive" ),
+    path('site/admin/pending_approval/', views.admin_approval , name="admin_approval" ),
+    path('site/admin/pending_approval/approve/<int:account_id>', views.admin_approval_approve , name="admin_approval_approve" ),
+    path('site/admin/pending_approval/archive/<int:account_id>', views.admin_approval_archive , name="admin_approval_archive" ),
     
 
 ]
+
+if settings.DEBUG == True:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

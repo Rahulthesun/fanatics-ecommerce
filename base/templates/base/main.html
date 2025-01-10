@@ -33,16 +33,16 @@ body {
 }
 /* Header */
 header {
-  background-color: #000;
+  background-color: #10110C;
   color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 0px 20px;
 }
 
 header .logo img {
-  max-height: 50px;
+  max-height: 100px;
 }
 
 header nav ul {
@@ -99,26 +99,26 @@ header nav ul li a i {
   margin: auto auto;
   display: grid;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
-  gap: 50px;
+  gap: 30px;
   padding: 20px;
 }
 
 .product-card {
-  border: 2px solid #575757;
   padding: 15px;
   text-align: left;
   background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .img-container {
   width: 90%;
+  height: 300px;
   margin: 0px auto;
   align-items: center;
 }
 
 .product-card img {
   max-width: 100%;
+  height: 100%;
   margin: 10px auto;
   margin-bottom: 10px;
 }
@@ -127,12 +127,12 @@ header nav ul li a i {
   font-family: 'DM Mono';
   font-style: normal;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 5px;
   /* identical to box height */
   letter-spacing: -0.05em;
 
-  color: #000000;
+  color: #fcce00;
 
 
 }
@@ -197,24 +197,33 @@ header nav ul li a i {
 
 /* Footer */
 footer {
-  background-color: #000;
+  background-color: #10110C;
   color: #fff;
   text-align: center;
-  padding: 20px;
+  padding: 30px;
+  padding-bottom: 10px;
   
 }
 
 footer .footer-logo img {
-  height: 150px;
+  height: 200px;
   border-radius: 999px;
+  margin-bottom: 0px;
 }
 
 footer address,
 footer .contact,
 footer .links,
 footer .socials {
-  margin: 40px 0;
+  margin: 20px 0;
   
+}
+
+footer .contact p,
+footer .links p,
+footer .socials p {
+  font-size: 20px;
+  font-weight: 800;
 }
 
 footer address{
@@ -228,17 +237,14 @@ footer .socials a {
   color: #f1f1f1;
   margin: 40px 20px;
   font-size: 20px;
-  font-weight: 600px;
+  font-weight: 600;
 }
 
 footer .socials a{
-  
+  margin-bottom: 10px;
   font-size: 30px;
 }
 
-footer .socials a img {
-  max-width: 30px;
-}
 
 
 
@@ -248,13 +254,14 @@ footer .socials a img {
   background-color: #000;
   color: #fff;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .login-form {
   width: 50%;
-  padding: 20px;
+  padding: 10px;
+  padding-top: 0px;
   margin: auto auto;
+  margin-top: 0px;
 }
 
 .login-form input[type="text"] , .login-form input[type="password"] , .login-form input[type="email"] , .login-form textarea {
@@ -278,6 +285,7 @@ button#login-button {
 .form-section {
   flex: 1;
   padding: 40px;
+  padding-top: 10px;
   background-color: #111;
 }
 
@@ -321,7 +329,7 @@ button#login-button {
   background-color: #ffc300;
 }
 
-.image-section {
+.image-section , .image-section-signup , .image-section-account {
   flex: 1;
   background-image: url("https://content3.jdmagicbox.com/v2/comp/chennai/z1/044pxx44.xx44.200310141119.p3z1/catalogue/fanatics-auto-studio-koyambedu-chennai-car-washing-services-7x2ph890bl.jpg"); /* Replace with your image path */
   background-size: cover;
@@ -329,13 +337,28 @@ button#login-button {
   height: 94vh; /* Adjust height to 50% of the viewport height */
 }
 
-.logo {
-  text-align: center;
-  margin-bottom: 20px;
+.image-section-signup {
+  background-image: url("https://content3.jdmagicbox.com/v2/comp/chennai/z1/044pxx44.xx44.200310141119.p3z1/catalogue/fanatics-auto-studio-koyambedu-chennai-car-washing-services-812wz3f5oz.jpg");
 }
 
-.logo img {
-  max-width: 100px;
+.image-section-account {
+  background-image: url("https://content3.jdmagicbox.com/v2/comp/chennai/z1/044pxx44.xx44.200310141119.p3z1/catalogue/fanatics-auto-studio-koyambedu-chennai-car-washing-services-mfpj90bzuw.jpg");
+}
+
+.logo  {
+  
+  margin: auto auto;
+  margin-left: 0px ;
+  margin-top: 0xp;
+}
+
+.logo img,.sidebar-logo img {
+  text-align: center;
+  max-width: 120px;
+}
+
+.sidebar-logo img {
+  max-width: 150px;
 }
 
 .logo h1 {
@@ -363,7 +386,7 @@ p#error {
   height: 96vh;
   top: 0;
   position: sticky;
-  background-color: #000;
+  background-color:#10110C;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -373,8 +396,10 @@ p#error {
 }
 
 .sidebar .logo img {
-  width: 20%auto;
-  margin-bottom: 30px;
+  width: 90%;
+  height: auto;
+  margin: 0px auto;
+  border: 2px solid white;
 }
 
 .sidebar nav ul {
@@ -479,6 +504,78 @@ p#info {
 
 #price {
   font-family: DM Mono;
+}
+
+
+/*Styles for waiting approval page*/
+
+/* Content Section Styles */
+.content {
+  text-align: center;
+  padding: 40px;
+}
+
+.content img {
+  width: 15%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.content h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Footer Styles */
+.footer {
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.footer .logo img {
+  max-height: 50px;
+  margin-bottom: 10px;
+}
+
+.footer .address {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.footer .contact {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+.footer .links {
+  margin-bottom: 10px;
+}
+
+.footer .links a {
+  color: #ffd700;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer .links a:hover {
+  text-decoration: underline;
+}
+
+.footer .socials img {
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
 }
 
 

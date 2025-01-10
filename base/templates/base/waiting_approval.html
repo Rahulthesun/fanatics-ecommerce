@@ -1,0 +1,32 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+<header>
+    <div class="logo">
+      <a href="{% url 'home' %}"><img src="https://i.ibb.co/C8372Y7/Untitled-design-39.png" alt="Fanatics Auto Studio" /></a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Our Approval Process</a></li>
+        <li><a href="">Why You Need to be Approved?</a></li>
+        
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+        {% if request.user.is_staff %}
+        <li><a href="{% url 'admin_approval' %}">Admin Dashboard</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+</header>
+  <main class="content">
+    <div class="review-section">
+      <img src="https://cdn-icons-png.flaticon.com/512/61/61227.png" alt="Clock Icon" class="review-icon" />
+      <!-- Replace with the actual icon path -->
+      <h1>Your Account is Being Reviewed!</h1>
+      <p>We’ll email you shortly once your account is approved.</p>
+    </div>
+  </main>
+  
+  {% include 'base/footer.html' %}
+{% endblock %}
+
