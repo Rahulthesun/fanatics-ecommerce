@@ -3,37 +3,204 @@
 {% block content %}
 
 
-<header>
-    <div class="logo">
-      <a href="{% url 'home' %}"><img src="https://i.ibb.co/C8372Y7/Untitled-design-39.png" alt="Fanatics Auto Studio" /></a>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="{% url 'logout' %}">Logout</a></li>
-        {% if request.user.is_staff %}
-        <li><a href="{% url 'admin_approval' %}">Admin Dashboard</a></li>
-        {% endif %}
-        <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-        <li><a href="{% url 'cart_view' company.id %}"><i class="fa-solid fa-cart-shopping"></i></a><sup>{% if cart.cart_quantity > 0 %} {{cart.cart_quantity}} {% endif %}</sup></li>
-      </ul>
-    </nav>
-  </header>
+ 
+
+
+  <section id="hero-img">
+    {% include 'base/header.html' %}
+  </section>
   <main>
-    <div class="navigation-flex">
-        <div class="sort-container">
-            <button class="sort-button">Sort Products <i class="fa-solid fa-arrow-down-short-wide"></i></button>
-        </div>
+  <div class="searchbar-background">
+
+    <!--NORMAL SEARCHBAR-FLEX-->
+    <div class="searchbar-flex">
+      <div class="search-flex">
+        <svg width="450" height="50" xmlns="http://www.w3.org/2000/svg">
+          <!-- Slanted Background (search box) using polygon -->
+          <polygon points="0,0 450,0 400,50 0,50" fill="white" stroke="rgba(14, 14, 14, 0.349)" stroke-width="2" />
+          
+          <!-- Search Box -->
+          <foreignObject x="10" y="5" width="350" height="50">
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                  <form>
+                      <input 
+                          type="search" 
+                          placeholder="Search here..." 
+                          style="font-family:Poppins;width: 100%; height: 40px; font-size: 16px; font-weight: 600; padding: 5px; box-sizing: border-box; border: none; border-radius: 5px;outline: none;"
+                      />
+                  </form>
+              </body>
+          </foreignObject>
+        </svg>
         
-        <div class="pagination">
-            <button class="sort-button">1</button>
-            <button class="sort-button">2</button>
-            <button class="sort-button">3</button>
-            <button class="sort-button">4</button>
-            <button class="sort-button">5</button>
-          </div>
+        <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+          <!-- Square with top-left corner cut at 45 degrees, aligned with search bar height -->
+          <polygon points="30,0 70,0 70,50 0,50 0,30 30,0" fill="rgb(151, 151, 151)" stroke="rgba(14, 14, 14, 0.349)" stroke-width="1.5" />
+          
+          <!-- Using foreignObject to add a Font Awesome icon -->
+          <foreignObject x="25" y="13" width="40" height="40">
+            <body xmlns="http://www.w3.org/1999/xhtml">
+              <i class="fa-solid fa-magnifying-glass fa-flip-horizontal" style="font-size: 26px; color: white;"></i>
+            </body>
+          </foreignObject>
+        </svg>
+      </div>
+
+
+      
+    
+      <div class="category-column-flex">
+        <div class="category-flex">
+          <svg width="150" height="50" xmlns="http://www.w3.org/2000/svg" id="all">
+            <!-- Square with top-left corner cut at 45 degrees, aligned with search bar height -->
+            <polygon points="50,0 150,0 150,30 130,50 30,50 30,20 50,0" fill="#ffffff" stroke="rgba(14, 14, 14, 0.349)" stroke-width="2" />
+            <text x="70" y="30" font-family="Poppins" font-size="18" font-weight="600" fill="rgb(122, 122, 122)">ALL</text>
+          </svg>
+        
+          <svg width="150" height="50" xmlns="http://www.w3.org/2000/svg">
+            <!-- Square with top-left corner cut at 45 degrees, aligned with search bar height -->
+            <polygon points="50,0 150,0 150,30 130,50 30,50 30,20 50,0" fill="#ffffff" stroke="rgba(14, 14, 14, 0.349)" stroke-width="2" />
+            <text x="70" y="30" font-family="Poppins" font-size="18" font-weight="600" fill="rgb(122, 122, 122)">PPF</text>
+          </svg>
+        
+        
+          <svg width="150" height="50" xmlns="http://www.w3.org/2000/svg">
+            <!-- Square with top-left corner cut at 45 degrees, aligned with search bar height -->
+            <polygon points="50,0 150,0 150,30 130,50 30,50 30,20 50,0" fill="#ffffff" stroke="rgba(14, 14, 14, 0.349)" stroke-width="2" />
+            <text x="60" y="30" font-family="Poppins" font-size="18" font-weight="600" fill="rgb(122, 122, 122)">WRAPS</text>
+          </svg>
+      
+          
+        </div>
+      
+        <div class="category-flex">
+          <svg width="300" height="100" xmlns="http://www.w3.org/2000/svg" id="big-svg">
+            <!-- Square with top-left corner cut at 45 degrees, aligned with search bar height -->
+            <polygon points="50,0 300,0 300,30 280,50 30,50 30,20 50,0" fill="#ffffff" stroke="rgba(14, 14, 14, 0.349)" stroke-width="2" />
+            <text x="80" y="30" font-family="Poppins" font-size="18" font-weight="600" fill="rgb(122, 122, 122)">CERAMIC COATING</text>
+          </svg>
+      
+          <svg width="300" height="100" xmlns="http://www.w3.org/2000/svg" id="big-svg">
+            <!-- Square with top-left corner cut at 45 degrees, aligned with search bar height -->
+            <polygon points="50,0 300,0 300,30 280,50 30,50 30,20 50,0" fill="#ffffff" stroke="rgba(14, 14, 14, 0.349)" stroke-width="2" />
+            <text x="70" y="30" font-family="Poppins" font-size="18" font-weight="600" fill="rgb(122, 122, 122)">WASHING SUPPLIES</text>
+          </svg>
+        </div>
+      </div>
     </div>
-   
+
+
+    <!--MOBILE SEARCHBAR-FLEX-->
+    <div class="searchbar-mobile-flex">
+      <div class="search-flex">
+        <svg width="300" height="50" xmlns="http://www.w3.org/2000/svg">
+          <!-- Slanted Background (search box) using polygon -->
+          <polygon points="0,0 300,0 250,50 0,50" fill="white" stroke="rgba(14, 14, 14, 0.349)" stroke-width="2" />
+          
+          <!-- Search Box -->
+          <foreignObject x="10" y="5" width="220" height="50">
+              <body xmlns="http://www.w3.org/1999/xhtml">
+                  <form>
+                      <input 
+                          type="search" 
+                          placeholder="Search here..." 
+                          style="font-family:Poppins;width: 100%; height: 40px; font-size: 16px; font-weight: 600; padding: 5px; box-sizing: border-box; border: none; border-radius: 5px;outline: none;"
+                      />
+                  </form>
+              </body>
+          </foreignObject>
+        </svg>
+        
+        <svg width="100" height="50" xmlns="http://www.w3.org/2000/svg">
+          <!-- Square with top-left corner cut at 45 degrees, aligned with search bar height -->
+          <polygon points="30,0 70,0 70,50 0,50 0,30 30,0" fill="rgb(151, 151, 151)" stroke="rgba(14, 14, 14, 0.349)" stroke-width="1.5" />
+          
+          <!-- Using foreignObject to add a Font Awesome icon -->
+          <foreignObject x="25" y="13" width="40" height="40">
+            <body xmlns="http://www.w3.org/1999/xhtml">
+              <i class="fa-solid fa-magnifying-glass fa-flip-horizontal" style="font-size: 26px; color: white;"></i>
+            </body>
+          </foreignObject>
+        </svg>
+      </div>
+
+
+      
+    
+      <div class="category-column-flex">
+        <div class="category-flex">
+          <svg width="100" height="40" xmlns="http://www.w3.org/2000/svg" id="all">
+            <!-- Square with top-left corner cut at 45 degrees, aligned with search bar height -->
+            <polygon points="30,0 100,0 100,20 80,40 10,40 10,20 " fill="#ffffff" stroke="rgba(14, 14, 14, 0.349)" stroke-width="2" />
+            <text x="45" y="25" font-family="Poppins" font-size="14" font-weight="600" fill="rgb(122, 122, 122)">ALL</text>
+          </svg>
+
+          <svg width="100" height="40" xmlns="http://www.w3.org/2000/svg" id="all">
+            <!-- Square with top-left corner cut at 45 degrees, aligned with search bar height -->
+            <polygon points="30,0 100,0 100,20 80,40 10,40 10,20 " fill="#ffffff" stroke="rgba(14, 14, 14, 0.349)" stroke-width="2" />
+            <text x="45" y="25" font-family="Poppins" font-size="14" font-weight="600" fill="rgb(122, 122, 122)">PPF</text>
+          </svg>
+
+
+          <svg width="100" height="40" xmlns="http://www.w3.org/2000/svg" id="all">
+            <!-- Square with top-left corner cut at 45 degrees, aligned with search bar height -->
+            <polygon points="30,0 100,0 100,20 80,40 10,40 10,20 " fill="#ffffff" stroke="rgba(14, 14, 14, 0.349)" stroke-width="2" />
+            <text x="35" y="25" font-family="Poppins" font-size="14" font-weight="600" fill="rgb(122, 122, 122)">WRAPS</text>
+          </svg>
+
+        
+          
+        </div>
+      
+        <div class="category-flex">
+          <svg width="180" height="40" xmlns="http://www.w3.org/2000/svg" id="big-svg">
+            <!-- Square with top-left corner cut at 45 degrees, aligned with search bar height -->
+            <polygon points="30,0 180,0 180,20 160,40 10,40 10,20 " fill="#ffffff" stroke="rgba(14, 14, 14, 0.349)" stroke-width="2" />
+            <text x="25" y="25" font-family="Poppins" font-size="14" font-weight="600" fill="rgb(122, 122, 122)">CERAMIC COATING</text>
+          </svg>
+
+          <svg width="180" height="40" xmlns="http://www.w3.org/2000/svg" id="big-svg">
+            <!-- Square with top-left corner cut at 45 degrees, aligned with search bar height -->
+            <polygon points="30,0 180,0 180,20 160,40 10,40 10,20 " fill="#ffffff" stroke="rgba(14, 14, 14, 0.349)" stroke-width="2" />
+            <text x="25" y="25" font-family="Poppins" font-size="14" font-weight="600" fill="rgb(122, 122, 122)">WASHING SUPPLIES</text>
+          </svg>
+          <!--
+          <svg width="300" height="100" xmlns="http://www.w3.org/2000/svg" id="big-svg">
+            <polygon points="50,0 300,0 300,30 280,50 30,50 30,20 50,0" fill="#ffffff" stroke="rgba(14, 14, 14, 0.349)" stroke-width="2" />
+            <text x="80" y="30" font-family="Poppins" font-size="18" font-weight="600" fill="rgb(122, 122, 122)">CERAMIC COATING</text>
+          </svg>
+      
+          <svg width="300" height="100" xmlns="http://www.w3.org/2000/svg" id="big-svg">
+            <polygon points="50,0 300,0 300,30 280,50 30,50 30,20 50,0" fill="#ffffff" stroke="rgba(14, 14, 14, 0.349)" stroke-width="2" />
+            <text x="70" y="30" font-family="Poppins" font-size="18" font-weight="600" fill="rgb(122, 122, 122)">WASHING SUPPLIES</text>
+          </svg>
+          -->
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    
+  
+
+    
+  
+  
+  
+  
+  
+
+
+
+
+
+  
+
+  
+  
+  
+
 
     <section class="product-grid">
       <!-- Product Card -->
@@ -42,13 +209,38 @@
         <div class="img-container">
             <img src="{{product.image}}" alt="{{product.name}}" />
         </div>
-        <h3><del style="color: rgb(153, 153, 153);">₹900</del> ₹{{product.price |floatformat}} </h3>
+
+        <!--PRICE
+                <h3><del style="color: rgb(153, 153, 153);">₹900</del> ₹{{product.price |floatformat}} </h3>
+        -->
+        <div class="product-categories">
+          <svg width="180" height="20" xmlns="http://www.w3.org/2000/svg" id="ceramic-coating">
+            <polygon points="0,0 180,0 160,20 0,20 0,0" fill="black" stroke="rgba(14, 14, 14, 0.349)" stroke-width="1.5" />
+            <text x="8" y="15" font-family="Arial" font-size="14" font-weight="600" fill="white">CERAMIC COATING</text>
+          </svg>
+          <svg width="60" height="20" xmlns="http://www.w3.org/2000/svg" id="ppf">
+            <polygon points="20,0 60,0 40,20 0,20 " fill="black" stroke="rgba(14, 14, 14, 0.349)" stroke-width="1.5" />
+            <text x="18" y="15" font-family="Arial" font-size="14" font-weight="600" fill="white">PPF</text>
+          </svg>
+        </div>
+        
+
+        
+
         <p class="product-title">{{product.name|slice:":24"}}</p>
-        <p class="product-description">{{product.description|slice:":80"}} ...</p>
-        <div class="button-flex">
+
+        
+        <p class="product-description">{{product.description|slice:":70"}} ...</p>
+        
+        
+        <!-- ADD TO CART 
+         <div class="button-flex">
             <a href="{% url 'add_to_cart' product.id company.id %}"><button class="buy-now" style="padding:15px 20px;"><i class="fa-solid fa-cart-plus"></i></button></a>
             <a href="{% url 'add_to_cart' product.id company.id %}"><button class="buy-now">Buy Now</button></a>
         </div>
+        
+        -->
+       
         
         
       </div>
@@ -57,10 +249,51 @@
     </section>
 
     
+    <div class="pagination">
+      <div class="pagination-flex">
+        <svg width="250" height="100" xmlns="http://www.w3.org/2000/svg" id="footer-buttons">
+          <!-- Background with slanted edge -->
+          <polygon points="50,0 250,0 250,60 200,100 0,100 0,40 " fill="white" stroke="grey" stroke-width="8" />
+          <text x="90" y="60" font-family="Poppins" font-size="30" font-weight="600" fill="grey">PREV</text>
+        </svg>
+
+        <svg width="100" height="40" xmlns="http://www.w3.org/2000/svg" id="footer-mobile-buttons">
+          <!-- Background with slanted edge -->
+          <polygon points="20,0 100,0 100,25 80,40 0,40 0,15 " fill="white" stroke="grey" stroke-width="4" />
+          <text x="35" y="25" font-family="Poppins" font-size="14" font-weight="600" fill="grey">PREV</text>
+        </svg>
+
+        <div class="pagination-background">
+          <button class="sort-button">1</button>
+          <button class="sort-button">2</button>  
+          <button class="sort-button">3</button>  
+          <button class="sort-button">4</button>  
+          <button class="sort-button">5</button>  
+          <button class="sort-button">6</button>  
+          <button class="sort-button">7</button>  
+        </div>
+
+        
+        <svg width="100" height="40" xmlns="http://www.w3.org/2000/svg" id="footer-mobile-buttons">
+          <!-- Background with slanted edge -->
+          <polygon points="20,0 100,0 100,25 80,40 0,40 0,15 " fill="white" stroke="grey" stroke-width="4" />
+          <text x="30" y="25" font-family="Poppins" font-size="14" font-weight="600" fill="black">NEXT</text>
+        </svg>
+        
+        <svg width="250" height="100" xmlns="http://www.w3.org/2000/svg" id="footer-buttons">
+          <!-- Background with slanted edge -->
+          <polygon points="50,0 250,0 250,60 200,100 0,100 0,40 " fill="white" stroke="grey" stroke-width="8" />
+          <text x="90" y="60" font-family="Poppins" font-size="30" font-weight="600" fill="black">NEXT</text>
+        </svg>
+  
+      </div>
+
+      
+    </div>
+    
   </main>
 
-  {% include 'base/footer.html' %}
-
+    {% include 'base/footer.html' %}
 
 {% endblock %}
 
