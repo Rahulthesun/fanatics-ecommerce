@@ -79,6 +79,8 @@ body {
   z-index: 10;
 }
 
+
+
 .header-flex.transparent svg polygon , .header-mobile-flex.transparent svg polygon{
   stroke: white;
   fill: none;
@@ -89,7 +91,7 @@ body {
   fill: white;
 }
 
-.header-mobile-flex.transparent .navbar-menu i{
+.header-mobile-flex.transparent #navbar-svg #navbar-menu #menu .fa-bars {
   color: white;
 }
 
@@ -383,6 +385,11 @@ footer .footer-link-section h1#logo {
   font-family: Poppins , serif;
 }
 
+footer .footer-link-section a {
+  color: white;
+  text-decoration: none;
+}
+
 footer .footer-link-section {
   display: flex;
   flex-direction: row;
@@ -405,6 +412,7 @@ footer .footer-link-section .footer-links h1 {
 }
 
 footer .footer-link-section .footer-links p {
+  font-size: 16px;
   text-align: left;
   font-weight: 600;
   
@@ -912,6 +920,48 @@ p#info {
   .pagination-flex svg#footer-mobile-buttons {
     display: block;
   }
+
+  .mobile-drawer {
+  display: none; 
+  }
+
+.mobile-drawer.open {
+  position: fixed;
+  top: 0px; /* Below the header */
+  left: 0%; /* Hidden off-screen */
+  width: 100%; /* Adjust the width of the drawer */
+   /* Maximum drawer width */
+  height: 100%; /* Full height of the viewport */
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2); /* Drawer shadow */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px;
+  z-index: 1000;
+  transition: right 0.3s ease; /* Smooth sliding effect */
+} 
+
+.mobile-drawer.open {
+  right: 0; /* Slide into view */
+}
+
+/* Style for the drawer links */
+.mobile-drawer a {
+  text-decoration: none;
+  color: black;
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.mobile-drawer a h1 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+
 
   .searchbar-mobile-flex {
     width: 98%;

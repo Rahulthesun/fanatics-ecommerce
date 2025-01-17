@@ -14,6 +14,13 @@ import django.contrib.messages as messages
 from decimal import Decimal
 
 # Create your views here.
+def unauthorized_home(request):
+    products = Product.objects.filter(in_stock = True)
+    context = {
+        'products':products,
+    }
+    return render(request , "base/home.html" , context)
+
 @login_required
 def home(request):
     context ={}

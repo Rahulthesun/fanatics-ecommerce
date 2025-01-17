@@ -99,10 +99,19 @@
         <polygon points="30,0 80,0 80,50 0,50 0,20" fill="#ffffff" stroke="none" stroke-width="2" />
         <foreignObject x="30" y="13" width="40" height="40" class="navbar-menu">
             <body xmlns="http://www.w3.org/1999/xhtml">
-                <i class="fa-solid fa-bars"style="font-size: 26px; color: black;"></i>
+                <span id="menu"><i class="fa-solid fa-bars"style="font-size: 26px; color: black;"></i></span>
             </body>
           </foreignObject>
     </svg>
+
+    <div class="mobile-drawer">
+        <a href=""><h1>PRODUCTS</h1></a>
+        <a href=""><h1>ABOUT</h1></a>
+        <a href=""><h1>CONTACT</h1></a>
+        <a href=""><h1>SUPPORT</h1></a>
+        <a href=""><h1><span id="menu"><i class="fa-solid fa-x"style="font-size: 26px; color: black;"></i></span></h1></a>
+
+    </div>
 
 
 </div>
@@ -162,18 +171,57 @@ const navbar = document.querySelector(".header-flex");
 const mobileNavbar = document.querySelector(".header-mobile-flex")
 const heroImg = document.getElementById("hero-img");
 
+const menuIcon= document.querySelector('#menu .fa-bars');
+const drawerMenu = document.querySelector(".mobile-drawer");
+
 navbar.classList.add("transparent")
 mobileNavbar.classList.add("transparent")
+menuIcon.style.color="white";
 
 // Add a scroll event listener
 window.addEventListener("scroll", () => {
   // Check if the scroll position is past the height of the hero image
   if (window.scrollY > heroImg.offsetHeight) {
     navbar.classList.remove("transparent"); // Remove transparent class
+    mobileNavbar.classList.remove("transparent"); // Remove transparent class
+    menuIcon.style.color="black";
   } else {
-    navbar.classList.add("transparent"); // Add transparent class
+    navbar.classList.add("transparent");
+    mobileNavbar.classList.add("transparent"); // Add transparent class
+    menuIcon.style.color="white";
   }
 });
+
+// Wait for the DOM to load
+document.addEventListener("DOMContentLoaded", function () {
+  const menubutton = document.querySelector("#menu i");
+  const mobileDrawer = document.querySelector(".mobile-drawer");
+  const backdrop = document.createElement("div"); // Create backdrop dynamically
+
+  // Add backdrop to the DOM
+  backdrop.className = "mobile-drawer-backdrop";
+  document.body.appendChild(backdrop);
+
+  // Toggle drawer open/close
+
+  menubutton.addEventListener("click", function () {
+    mobileDrawer.classList.toggle("open");
+    backdrop.classList.toggle("open");
+    menubutton.classList.toggle("active"); // Optional: Rotate the menu icon
+  });
+
+  // Close the drawer when clicking the backdrop
+  backdrop.addEventListener("click", function () {
+    mobileDrawer.classList.remove("open");
+    backdrop.classList.remove("open");
+    menubutton.classList.remove("active");
+  });
+});
+
+
+
+
+
 </script>
 
 

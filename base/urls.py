@@ -5,7 +5,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.home , name="home" ),
+    path('', views.unauthorized_home , name="unauthorized_home" ),
+    path('home/', views.home , name="home" ),
     path('login/', EmailLogin.as_view() , name="login" ),
     path('logout/', LogoutView.as_view(next_page='login') , name="logout" ),
     path('signup/', EmailSignup.as_view() , name="signup" ),
